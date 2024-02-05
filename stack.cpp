@@ -17,34 +17,23 @@ public:
 
     // Add element to the top of the stack
     void push(int data) {
-        Node* newNode = new Node(data);
-        newNode->next = top; // Point new node to the current top
-        top = newNode;       // Update top to the new node
+        
+        // Add definitions
     }
 
     // Remove and return the top element of the stack
     int pop() {
-        if (isEmpty()) {
-            throw std::out_of_range("Stack is empty. Cannot pop.");
-        }
-        Node* temp = top;
-        int data = top->data;
-        top = top->next; // Update top to the next element
-        delete temp;     // Free the old top
-        return data;
+        // Add definition for pop
     }
 
     // Check if the stack is empty
     bool isEmpty() const {
-        return top == nullptr;
+        // Add definitions
     }
 
     // Return the top element of the stack without removing it
     int peek() const {
-        if (isEmpty()) {
-            throw std::out_of_range("Stack is empty. Cannot peek.");
-        }
-        return top->data;
+        // Add definitions
     }
 
     // Destructor to free the allocated memory
