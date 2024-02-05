@@ -5,7 +5,7 @@
 A stack is a fundamental data structure used in computer science to store and manage a collection of elements in a Last-In-First-Out (LIFO) manner. This means the last element added to the stack will be the first one to be removed. Stacks are analogous to a stack of plates; you can only add or remove the top plate, mimicking the push and pop operations in a stack data structure.
 
 ## Tasks
-Create your own Stack Class with the below functions using pointers and linked list on the stack.cpp:
+Create your own Stack Class with the below functions using pointers and linked list on the stack.cpp (noo vector or list module from C++ Standard Template is allowed):
 - Push: Adds an element to the top of the stack.
 - Pop: Removes the top element from the stack and returns it. This operation exposes the next element as the new top.
 - Peek (or Top): Returns the top element of the stack without removing it, allowing a look at the value without modifying the stack.
