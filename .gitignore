@@ -1,7 +1,24 @@
-.vscode/
+# Ignore build artifacts and temporary files
+cmake-build-*
 .idea/
-.DS_Store
-answer.html
-answer.js
-answer.cpp
-driver
+*.iml
+*.o
+*.obj
+*.swp
+*.dSYM/
+*.DS_Store
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.log
+*.tmp
+
+# Ignore CLion-specific files
+.cmake/
+CMakeLists.txt.user
+*.dir/
+*.cbp
+Makefile
+
