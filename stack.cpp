@@ -1,52 +1,54 @@
 #include <iostream>
 #include "stack.h"
 
-class Node {
-public:
-    int data;
-    Node* next;
-
-    Node(int data) : data(data), next(nullptr) {}
-};
-
-class Stack {
-private:
-    Node* top;
-
-public:
-    // Constructor initializes an empty stack
-    Stack() : top(nullptr) {}
+// Constructor initializes an empty stack
+Stack::Stack() : top(nullptr) {}
 
     // Add element to the top of the stack
-    bool push(int data) {
-        Node* newNode = new Node(data);
-        if (!newNode) {
-            return false;   // Memory allocation failed
+    bool Stack::push(const int data) {
+        bool success = false;
+        Node* newNode = new (std::nothrow) Node(data);
+        if (newNode) {
+            newNode->next = top;    // Link the new node to current top
+            top = newNode;          // Set new node as the top
+            success = true;         // Indicate successful push operation
         }
-        newNode->next = top;
-        top = newNode;
-        return true;
+        return success;
     }
 
     // Remove and return the top element of the stack
-    int pop() {
-        // Add definition for pop
+    int Stack::pop() {
+        int poppedValue = -1;
+        if (!isEmpty()) {
+            Node* temp = top;
+            poppedValue = top->data;
+            top = top->next;
+            delete temp;
+        } else {
+            std::cerr << "Stack underflow error: No elements to pop." << std::endl;
+        }
+        return poppedValue;
     }
 
     // Check if the stack is empty
-    bool isEmpty() const {
-        // Add definitions
+    bool Stack::isEmpty() const {
+        return top == nullptr;
     }
 
     // Return the top element of the stack without removing it
-    int peek() const {
-        // Add definitions
+    int Stack::peek() const {
+        int topValue = -1;
+        if (!isEmpty()) {
+            topValue = top->data;
+        } else {
+            std::cerr << "Stack underflow error: No elements to peek." << std::endl;
+        }
+        return topValue;;
     }
 
     // Destructor to free the allocated memory
-    ~Stack() {
+    Stack::~Stack() {
         while (!isEmpty()) {
             pop(); // Pop all elements to free memory
         }
     }
-};
