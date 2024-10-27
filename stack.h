@@ -3,13 +3,13 @@
 
 class Stack {
     public:
-    Stack();
-    ~Stack();
+        Stack();
+        ~Stack();
 
-    bool push(int data);
-    int pop();
-    int peek() const;
-    bool isEmpty () const;
+        bool push(int data);
+        int pop();
+        int peek() const;
+        bool isEmpty () const;
 
     private:
     // A node class to represent each element in the stack
