@@ -1,5 +1,5 @@
 #include <iostream>
-#incldue "stack.h"
+#include "stack.h"
 
 class Node {
 public:
@@ -14,12 +14,18 @@ private:
     Node* top;
 
 public:
+    // Constructor initializes an empty stack
     Stack() : top(nullptr) {}
 
     // Add element to the top of the stack
     bool push(int data) {
-        
-        // Add definitions
+        Node* newNode = new Node(data);
+        if (!newNode) {
+            return false;   // Memory allocation failed
+        }
+        newNode->next = top;
+        top = newNode;
+        return true;
     }
 
     // Remove and return the top element of the stack
