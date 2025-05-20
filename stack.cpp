@@ -36,14 +36,13 @@ Stack::Stack() : top(nullptr) {}
     }
 
     // Return the top element of the stack without removing it
-    int Stack::peek() const {
-        int topValue = -1;
-        if (!isEmpty()) {
-            topValue = top->data;
-        } else {
-            std::cerr << "Stack underflow error: No elements to peek." << std::endl;
+    int Stack::peek(bool& success) const {
+        if (isEmpty()) {
+            success = false;
+            return 0;
         }
-        return topValue;
+        success = true;
+        return top->data;
     }
 
     // Destructor to free the allocated memory
