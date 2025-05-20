@@ -17,17 +17,17 @@ Stack::Stack() : top(nullptr) {}
     }
 
     // Remove and return the top element of the stack
-    int Stack::pop() {
-        int poppedValue = -1;
-        if (!isEmpty()) {
-            Node* temp = top;
-            poppedValue = top->data;
-            top = top->next;
-            delete temp;
-        } else {
-            std::cerr << "Stack underflow error: No elements to pop." << std::endl;
+    int Stack::pop(bool &success) {
+        if (isEmpty()) {
+            success = false;
+            return 0;
         }
-        return poppedValue;
+        Node* temp = top;
+        int val = temp->data;
+        top = top->next;
+        delete temp;
+        success = true;
+        return val;
     }
 
     // Check if the stack is empty
