@@ -1,0 +1,50 @@
+What You Also Need to Know for CS-Level Understanding
+1. Stack Frames
+When a function is called:
+
+The return address is pushed ($ra in MIPS)
+
+The caller saves registers it needs later
+
+The callee might allocate space for local variables
+
+Parameters may be passed on the stack if not enough registers are available
+
+This collection is called a stack frame or activation record
+
+2. Frame Pointer ($fp or $s8)
+Points to a fixed location within the stack frame
+
+Useful because the stack pointer ($sp) changes as you push/pop
+
+You can access arguments, locals, and saved registers with offsets from $fp
+
+3. Calling Conventions
+Govern who saves what (caller vs callee)
+
+Some registers must be saved/restored by the callee (e.g., $s0-$s7)
+
+Others are temporary and can be overwritten ($t0-$t9)
+
+4. Recursion
+Each recursive call has its own stack frame
+
+Local variables and return addresses are distinct per call
+
+Without correct stack handling, recursive functions will break
+
+5. Interrupts and Context Switching
+When an interrupt occurs, the machine state (registers, PC) must be saved on the stack
+
+The OS or interrupt handler modifies state, then restores it before resuming
+
+This is similar to function calls but at the hardware level
+
+6. Buffer Overflow & Stack Security
+If you write beyond the bounds of a local variable, you can overwrite:
+
+Return address
+
+Saved frame pointers
+
+Leads to serious security issues (e.g., code injection, return-to-libc attacks)
