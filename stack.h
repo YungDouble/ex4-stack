@@ -7,8 +7,8 @@ class Stack {
         ~Stack();
 
         bool push(int data);
-        int pop();
-        int peek() const;
+        int pop(bool);
+        int peek(bool) const;
         bool isEmpty () const;
 
     private:
