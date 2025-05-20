@@ -43,7 +43,7 @@ Stack::Stack() : top(nullptr) {}
         } else {
             std::cerr << "Stack underflow error: No elements to peek." << std::endl;
         }
-        return topValue;;
+        return topValue;
     }
 
     // Destructor to free the allocated memory
