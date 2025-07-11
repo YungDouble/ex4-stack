@@ -4,17 +4,16 @@
 // Constructor initializes an empty stack
 Stack::Stack() : top(nullptr) {}
 
-    // Add element to the top of the stack
-    bool Stack::push(const int data) {
-        bool success = false;
-        Node* newNode = new (std::nothrow) Node(data);
-        if (newNode) {
-            newNode->next = top;    // Link the new node to current top
-            top = newNode;          // Set new node as the top
-            success = true;         // Indicate successful push operation
-        }
-        return success;
+// Add element to the top of the stack
+bool Stack::push(const int data) {
+    Node* newNode = new (std::nothrow) Node(data);
+    if (!newNode) {
+        return false;
     }
+    newNode->next = top;
+    top = newNode;
+    return true;
+}
 
     // Remove and return the top element of the stack
     int Stack::pop(bool &success) {
