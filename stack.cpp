@@ -15,21 +15,21 @@ bool Stack::push(const int data) {
     return true;
 }
 
-    // Remove and return the top element of the stack
-    int Stack::pop(bool &success) {
-        if (isEmpty()) {
-            success = false;
-            return 0;
-        }
-        Node* temp = top;
-        int val = temp->data;
-        top = top->next;
-        delete temp;
-        success = true;
-        return val;
+// Remove and return the top element of the stack
+int Stack::pop(bool &success) {
+    if (isEmpty()) {
+        success = false;
+        return 0;
+    }
+    Node* temp = top;
+    int val = temp->data;
+    top = top->next;
+    delete temp;
+    success = true;
+    return val;
     }
 
-    // Check if the stack is empty
+    // Returns true if the stack is empty
     bool Stack::isEmpty() const {
         return top == nullptr;
     }
